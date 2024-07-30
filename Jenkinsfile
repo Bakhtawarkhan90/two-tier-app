@@ -2,12 +2,12 @@ pipeline {
     agent any
     
     stages{
-        stage("Code"){
+        stage("Fetching Code"){
             steps{
                 git url: "https://github.com/Bakhtawarkhan90/two-tier-app.git", branch: "main"
             }
         }
-        stage("Build "){
+        stage("Build"){
             steps{
                 sh "docker build . -t flaskapp"
             }
