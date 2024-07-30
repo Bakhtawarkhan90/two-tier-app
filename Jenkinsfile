@@ -4,10 +4,10 @@ pipeline {
     stages{
         stage("Code"){
             steps{
-                git url: "https://github.com/LondheShubham153/two-tier-flask-app.git", branch: "jenkins"
+                git url: "https://github.com/Bakhtawarkhan90/two-tier-app.git", branch: "main"
             }
         }
-        stage("Build & Test"){
+        stage("Build "){
             steps{
                 sh "docker build . -t flaskapp"
             }
@@ -23,7 +23,8 @@ pipeline {
         }
         stage("Deploy"){
             steps{
-                sh "docker-compose down && docker-compose up -d"
+                sh "docker compose down"  
+                sh "docker compose up -d"
             }
         }
     }
